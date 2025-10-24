@@ -9,8 +9,7 @@ def eat_ghost(power_pellet_active, touching_ghost):
     :return: bool - can a ghost be eaten?
     """
 
-    pass
-
+    return power_pellet_active and touching_ghost
 
 def score(touching_power_pellet, touching_dot):
     """Verify that Pac-Man has scored when a power pellet or dot has been eaten.
@@ -20,7 +19,7 @@ def score(touching_power_pellet, touching_dot):
     :return: bool - has the player scored or not?
     """
 
-    pass
+    return touching_power_pellet or touching_dot
 
 
 def lose(power_pellet_active, touching_ghost):
@@ -31,8 +30,7 @@ def lose(power_pellet_active, touching_ghost):
     :return: bool - has the player lost the game?
     """
 
-    pass
-
+    return touching_ghost and (power_pellet_active is False)
 
 def win(has_eaten_all_dots, power_pellet_active, touching_ghost):
     """Trigger the victory event when all dots have been eaten.
@@ -43,4 +41,4 @@ def win(has_eaten_all_dots, power_pellet_active, touching_ghost):
     :return: bool - has the player won the game?
     """
 
-    pass
+    return has_eaten_all_dots and (lose(power_pellet_active, touching_ghost) is False)
